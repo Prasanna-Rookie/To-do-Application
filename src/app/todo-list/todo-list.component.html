@@ -1,0 +1,54 @@
+<div class="container">
+  <h3 style="text-align: center;">To-do Application</h3>
+  <hr>
+<form (ngSubmit)="onsubmit(formdata)" #formdata = "ngForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Task Name</label>
+      <input type="text" class="form-control" id="task" placeholder="Enter Task Name"  name="taskName" [(ngModel)]="selectedTask.taskname" #taskName="ngModel" required>
+      <div *ngIf="taskName.invalid && (taskName.dirty || taskName.touched)">
+      <small  id="error" class="form-text text-danger">Task Required.</small>
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Deadline</label>
+      <input type="date" class="form-control" id="task" placeholder="Enter Deadline"  name="Deadline" [(ngModel)]="selectedTask.Deadline" #Deadline="ngModel" required>
+      <div *ngIf="Deadline.invalid && (Deadline.dirty || Deadline.touched)">
+      <small  id="error" class="form-text text-danger">Deadline Required.</small>
+      </div>
+    </div>
+    <br>
+      <button [disabled]="formdata.invalid" class="align" type="submit">{{ editIndex !== null ? 'Update' : 'Submit' }}</button>
+  </form>
+</div>
+<br>
+<br>
+<br>
+
+<div class="tabledesign">
+<table class="table table-striped">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">S.no</th>
+      <th scope="col">Task</th>
+      <th scope="col">Date/Time</th>
+      <th scope="col">Deadline</th>
+      <th scope="col">completed</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of taskArray; index as i" [ngClass]="{'strikeout': t.iscomplete}">
+      <th scope="row">{{i+1}}</th>
+      <td>{{t.taskname}}</td>
+      <td>{{t.date | date: 'MM/dd/yyyy, hh:mm a'}}</td>
+      <td>{{t.Deadline}}</td>
+      <td ><input (change)="onchecked(i)" type="checkbox" name="completed" [checked]="t.iscomplete" id="completed"></td>
+      <td style="display: flex; gap: 20px;">
+        <button (click)="onUpdateTask(i)" class="btn btn-warning btn-sm">update</button>
+        <button (click)="deletetask(i)" class="btn btn-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>
+</div>

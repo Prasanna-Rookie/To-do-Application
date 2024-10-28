@@ -1,0 +1,51 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #c8f8dc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+  }
+  .tabledesign{
+    max-width: 800px;
+    margin: 0 auto;
+    border: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+.align{
+    margin: 0 225px;
+  }
+  button:disabled {
+    background-color: #ff0505;
+  }
+  #completed{
+    margin: 10px 40px;
+    width: 20px;   
+    height: 20px;  
+    transform: scale(1.5); 
+    cursor: pointer;
+  }
+  th{
+    text-align: center;
+  }
+  .strikeout {
+    text-decoration: line-through;
+    color: gray; /* Optional: change color to indicate completion */
+  }
